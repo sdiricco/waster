@@ -10,51 +10,31 @@
       <div>
         <ion-card>
           <ion-card-header>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            <ion-card-subtitle>Prossima esposizione</ion-card-subtitle>
             <ion-card-title>
-              <font-awesome-icon icon="fa-solid fa-user-secret" size="1x" />
-              Card Title
+              Venerdì 19/08
             </ion-card-title>
           </ion-card-header>
-
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean
-          </ion-card-content>
         </ion-card>
 
         <ion-card>
-          <ion-item>
-            <ion-icon :icon="pin" slot="start"></ion-icon>
-            <ion-label>ion-item in a card, icon left, button right</ion-label>
-            <ion-button fill="outline" slot="end">View</ion-button>
+          <ion-item class="item-wrapper">
+            <div class="icon-food-wrapper" :style="{background: 'var(--ion-color-warning)'}">
+              <font-awesome-icon size="2x" color="black" icon="fa-solid fa-fish" />
+            </div>
+            <div>
+              <ion-text color="dark">
+                <b>Organico</b>
+              </ion-text>
+            </div>
           </ion-item>
-
-          <ion-card-content>
-            This is content, without any paragraph or header tags,
-            within an ion-card-content element.
-          </ion-card-content>
         </ion-card>
-
         <ion-card>
-          <ion-item href="#" class="ion-activated">
-            <ion-icon :icon="wifi" slot="start"></ion-icon>
-            <ion-label>Card Link Item 1 activated</ion-label>
-          </ion-item>
-
-          <ion-item href="#">
-            <ion-icon :icon="wine" slot="start"></ion-icon>
-            <ion-label>Card Link Item 2</ion-label>
-          </ion-item>
-
-          <ion-item class="ion-activated">
-            <ion-icon :icon="warning" slot="start"></ion-icon>
-            <ion-label>Card Button Item 1 activated</ion-label>
-          </ion-item>
-
-          <ion-item>
-            <ion-icon :icon="walk" slot="start"></ion-icon>
-            <ion-label>Card Button Item 2</ion-label>
+          <ion-item class="item-wrapper">
+            <div class="icon-food-wrapper" :style="{background: 'var(--ion-color-secondary)'}">
+              <font-awesome-icon size="2x" color="black" icon="fa-solid fa-newspaper" />
+            </div>
+            <b>Carta</b>
           </ion-item>
         </ion-card>
       </div>
@@ -63,9 +43,20 @@
 </template>
 
 <script lang="ts" setup>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon, IonItem, IonLabel } from '@ionic/vue';
-import { pin, walk, warning, wifi, wine } from 'ionicons/icons';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon, IonItem, IonLabel } from '@ionic/vue';
 </script>
 
-<style scoped>  
+<style scoped>
+.icon-food-wrapper {
+  border: 2px solid var(--ion-color-dark);
+  border-radius: 50%;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.item-wrapper {
+  margin: 1rem 0rem;
+}
+
+
 </style>
