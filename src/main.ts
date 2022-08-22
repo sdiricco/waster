@@ -39,10 +39,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faUserSecret, faDrumstickBite, faNewspaper, faFish } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faDrumstickBite, faNewspaper, faFish, faBottleWater, faBaby, faBiohazard, faGlasses } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret, faDrumstickBite, faNewspaper, faFish, faTwitter)
+library.add(faUserSecret, faDrumstickBite, faNewspaper, faFish, faTwitter, faBottleWater, faBaby, faBiohazard, faGlasses)
 
 const app = createApp(App)
   .component('font-awesome-icon', FontAwesomeIcon)
