@@ -99,8 +99,9 @@ function isDayOfGlass(date: Date = new Date()) {
 }
 
 export function getWaste(date: Date = new Date()): any {
-  const day = date.getDay();
+  const day = date.getDay() -1;
   console.log('day', day);
+
   switch (day) {
     case 0: {
       return ['Multimateriale']
