@@ -34,19 +34,19 @@
 
 <script lang="ts" setup>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem } from '@ionic/vue';
-import {getNextDay} from "../services/date"
+// import {getNextDay} from "../services/date"
 import {getWaste} from "../services/waste"
 import {days, months} from "../services/constants"
 
 
-// const year = 2022;
-// const monthIndex = 7;
-// const dayIndex = 17; 
-const d = getNextDay()
+const year = 2022;
+const monthIndex = 8;
+const dayIndex = 10; 
+const d = new Date(year, monthIndex, dayIndex)
+// const d = getNextDay()
 console.log(d)
 
-const day = d.getDay() -1;
-console.log('day', day)
+const day = d.getDay();
 const month = d.getMonth();
 const dayOfMonth = d.getDate();
 
