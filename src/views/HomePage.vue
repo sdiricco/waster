@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>App</ion-title>
+        <ion-title>Wastapp - v0.0.2</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -34,16 +34,16 @@
 
 <script lang="ts" setup>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem } from '@ionic/vue';
-// import {getNextDay} from "../services/date"
+import {getNextDay} from "../services/date"
 import {getWaste} from "../services/waste"
 import {days, months} from "../services/constants"
 
 
-const year = 2022;
-const monthIndex = 8;
-const dayIndex = 10; 
-const d = new Date(year, monthIndex, dayIndex)
-// const d = getNextDay()
+// const year = 2022;
+// const monthIndex = 8;
+// const dayIndex = 16; 
+// const d = new Date(year, monthIndex, dayIndex)
+const d = getNextDay()
 console.log(d)
 
 const day = d.getDay();
@@ -95,7 +95,7 @@ const getColorIcon = (waste: string)=>{
       return 'var(--ion-color-secondary-tint)'
     }
     case 'Glass': {
-      return 'var(--ion-color-light)'
+      return 'var(--ion-color-dark)'
     }
   }
 }
