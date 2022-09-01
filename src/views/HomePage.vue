@@ -2,7 +2,10 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Wastapp - v0.0.2</ion-title>
+        <ion-buttons slot="start">
+          <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+          <ion-title>Wastapp - v0.0.2</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -19,11 +22,11 @@
 
         <ion-card v-for="w in wasteList" :key="w">
           <ion-item class="item-wrapper">
-            <div class="icon-food-wrapper" :style="{background: getColorIcon(w)}">
+            <div class="icon-food-wrapper" :style="{ background: getColorIcon(w) }">
               <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
             </div>
             <div>
-              <b>{{w}}</b>
+              <b>{{ w }}</b>
             </div>
           </ion-item>
         </ion-card>
@@ -33,18 +36,18 @@
 </template>
 
 <script lang="ts" setup>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem } from '@ionic/vue';
-import {getNextDay} from "../services/date"
-import {getWaste} from "../services/waste"
-import {days, months} from "../services/constants"
-
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem } from "@ionic/vue";
+import { getNextDay } from "../services/date";
+import { getWaste } from "../services/waste";
+import { days, months } from "../services/constants";
+import { star} from 'ionicons/icons';
 
 // const year = 2022;
 // const monthIndex = 8;
-// const dayIndex = 16; 
+// const dayIndex = 16;
 // const d = new Date(year, monthIndex, dayIndex)
-const d = getNextDay()
-console.log(d)
+const d = getNextDay();
+console.log(d);
 
 const day = d.getDay();
 const month = d.getMonth();
@@ -52,55 +55,53 @@ const dayOfMonth = d.getDate();
 
 const wasteList = getWaste(d);
 
-console.log('wasteList', wasteList);
+console.log("wasteList", wasteList);
 
-const getWasteIcon = (waste: string)=>{
-  switch(waste) {
-    case 'Multimateriale':{
-      return 'fa-solid fa-bottle-water'
+const getWasteIcon = (waste: string) => {
+  switch (waste) {
+    case "Multimateriale": {
+      return "fa-solid fa-bottle-water";
     }
-    case 'Carta':{
-      return 'fa-solid fa-newspaper'
+    case "Carta": {
+      return "fa-solid fa-newspaper";
     }
-    case 'Organico': {
-      return 'fa-solid fa-fish'
+    case "Organico": {
+      return "fa-solid fa-fish";
     }
-    case 'Pannolini': {
-      return 'fa-solid fa-baby'
+    case "Pannolini": {
+      return "fa-solid fa-baby";
     }
-    case 'Indifferenziato': {
-      return 'fa-solid fa-biohazard'
+    case "Indifferenziato": {
+      return "fa-solid fa-biohazard";
     }
-    case 'Glass': {
-      return 'fa-solid fa-glasses'
+    case "Vetro": {
+      return "fa-solid fa-glasses";
     }
   }
-}
+};
 
-const getColorIcon = (waste: string)=>{
-  switch(waste) {
-    case 'Multimateriale':{
-      return 'var(--ion-color-primary)'
+const getColorIcon = (waste: string) => {
+  switch (waste) {
+    case "Multimateriale": {
+      return "var(--ion-color-primary)";
     }
-    case 'Organico': {
-      return 'var(--ion-color-warning)'
+    case "Organico": {
+      return "var(--ion-color-warning)";
     }
-    case 'Pannolini': {
-      return 'var(--ion-color-secondary-tint)'
+    case "Pannolini": {
+      return "var(--ion-color-secondary-tint)";
     }
-    case 'Indifferenziato': {
-      return 'var(--ion-color-medium)'
+    case "Indifferenziato": {
+      return "var(--ion-color-medium)";
     }
-    case 'Carta':{
-      return 'var(--ion-color-secondary-tint)'
+    case "Carta": {
+      return "var(--ion-color-secondary-tint)";
     }
-    case 'Glass': {
-      return 'var(--ion-color-dark)'
+    case "Vetro": {
+      return "var(--ion-color-dark)";
     }
   }
-}
-
-
+};
 </script>
 
 <style scoped>
@@ -108,7 +109,7 @@ const getColorIcon = (waste: string)=>{
   border: 2px solid var(--ion-color-dark);
   border-radius: 50%;
   width: 4rem;
-  height: 4rem;;
+  height: 4rem;
   padding: 1rem;
   margin-right: 1rem;
   display: flex;
@@ -119,6 +120,4 @@ const getColorIcon = (waste: string)=>{
 .item-wrapper {
   margin: 1rem 0rem;
 }
-
-
 </style>

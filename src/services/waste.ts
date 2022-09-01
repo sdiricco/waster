@@ -117,7 +117,7 @@ export function getWaste(date: Date = new Date()): any {
     }
     case 4: {
       if (isDayOfGlass(date)) {
-        return ['Glass']
+        return ['Vetro']
       }
       return ['Multimateriale']
     }
