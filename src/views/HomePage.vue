@@ -40,7 +40,6 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardH
 import { getNextDay } from "../services/date";
 import { getWaste } from "../services/waste";
 import { days, months } from "../services/constants";
-import { star} from 'ionicons/icons';
 
 // const year = 2022;
 // const monthIndex = 8;
