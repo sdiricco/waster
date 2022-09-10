@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-          <ion-title>Esposizione giornaliera</ion-title>
+        <ion-title>Esposizione giornaliera</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -17,23 +17,43 @@
           </ion-card-header>
         </ion-card>
 
-        <ion-card v-for="w in wasteList" :key="w">
-          <ion-item class="item-wrapper">
-            <div class="icon-food-wrapper" :style="{ background: getColorIcon(w) }">
-              <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
-            </div>
-            <div>
-              <b>{{ w }}</b>
-            </div>
-          </ion-item>
-        </ion-card>
+        <template v-if="wasteList && wasteList.length">
+          <ion-card v-for="w in wasteList" :key="w">
+            <ion-item class="item-wrapper">
+              <div class="icon-food-wrapper" :style="{ background: getColorIcon(w) }">
+                <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
+              </div>
+              <div>
+                <b>{{ w }}</b>
+              </div>
+            </ion-item>
+          </ion-card>
+        </template>
+        <template v-else>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title> Nessuna esposizione per domani </ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </template>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts" setup>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem } from "@ionic/vue";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonItem,
+} from "@ionic/vue";
 import { getNextDay } from "../services/date";
 import { getWaste } from "../services/waste";
 import { days, months } from "../services/constants";

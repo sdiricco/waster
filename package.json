@@ -1,8 +1,8 @@
 {
-  "name": "ionic-app",
-  "version": "0.0.2",
+  "name": "waste-app",
+  "version": "0.0.3",
   "private": true,
-  "description": "An Ionic project",
+  "description": "A waste project",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",

@@ -5,8 +5,8 @@
       <ion-tab-bar slot="bottom">
 
         <ion-tab-button tab="overview" href="/tabs/overview">
-          <ion-icon :icon="home" />
-          <ion-label>Esposizione</ion-label>
+          <ion-icon :icon="calendarOutline" />
+          <ion-label>Esposizione giornaliera</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="categories" href="/tabs/categories">
@@ -35,8 +35,8 @@ import {
   IonRouterOutlet 
 } from '@ionic/vue';
 import { 
-  home,
   layersOutline,
-  settings
+  settings,
+  calendarOutline
 } from 'ionicons/icons';
 </script>
