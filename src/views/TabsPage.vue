@@ -6,7 +6,7 @@
 
         <ion-tab-button tab="overview" href="/tabs/overview">
           <ion-icon :icon="calendarOutline" />
-          <ion-label>Esposizione giornaliera</ion-label>
+          <ion-label>Esposizione</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="categories" href="/tabs/categories">
