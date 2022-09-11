@@ -10,7 +10,7 @@
       <div>
         <ion-card>
           <ion-card-header>
-            <ion-card-subtitle>Prossima esposizione</ion-card-subtitle>
+            <ion-card-subtitle>Prossima raccolta</ion-card-subtitle>
             <ion-card-title>
               {{ `${days[day]} ${dayOfMonth} ${months[month]}` }}
             </ion-card-title>
@@ -19,6 +19,9 @@
 
         <template v-if="wasteList && wasteList.length">
           <ion-card v-for="w in wasteList" :key="w">
+            <ion-card-header>
+              <ion-card-title> Esporre </ion-card-title>
+            </ion-card-header>
             <ion-item class="item-wrapper">
               <div class="icon-food-wrapper" :style="{ background: getColorIcon(w) }">
                 <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
@@ -32,7 +35,7 @@
         <template v-else>
           <ion-card>
             <ion-card-header>
-              <ion-card-title> Nessuna esposizione per domani </ion-card-title>
+              <ion-card-title> Nessuna esposizione </ion-card-title>
             </ion-card-header>
           </ion-card>
         </template>
