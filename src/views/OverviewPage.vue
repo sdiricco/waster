@@ -18,11 +18,11 @@
         </ion-card>
 
         <template v-if="wasteList && wasteList.length">
-          <ion-card v-for="w in wasteList" :key="w">
+          <ion-card>
             <ion-card-header>
               <ion-card-title> Esporre </ion-card-title>
             </ion-card-header>
-            <ion-item class="item-wrapper">
+            <ion-item class="item-wrapper" v-for="w in wasteList" :key="w">
               <div class="icon-food-wrapper" :style="{ background: getColorIcon(w) }">
                 <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
               </div>
