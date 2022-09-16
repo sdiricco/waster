@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
 import App from './App.vue'
 import router from './router';
 import './registerServiceWorker'
@@ -44,8 +46,12 @@ import { faUserSecret, faDrumstickBite, faNewspaper, faFish, faBottleWater, faBa
 /* add icons to the library */
 library.add(faUserSecret, faDrumstickBite, faNewspaper, faFish, faTwitter, faBottleWater, faBaby, faBiohazard, faGlasses)
 
+const pinia = createPinia()
+
+
 const app = createApp(App)
   .component('font-awesome-icon', FontAwesomeIcon)
+  .use(pinia)
   .use(IonicVue)
   .use(router);
   

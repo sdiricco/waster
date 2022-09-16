@@ -129,3 +129,49 @@ export function getWaste(date: Date = new Date()): any {
     }
   }
 }
+
+export function getWasteIcon(waste: string) {
+  switch (waste) {
+    case "Multimateriale": {
+      return "fa-solid fa-bottle-water";
+    }
+    case "Carta": {
+      return "fa-solid fa-newspaper";
+    }
+    case "Organico": {
+      return "fa-solid fa-fish";
+    }
+    case "Pannolini": {
+      return "fa-solid fa-baby";
+    }
+    case "Indifferenziato": {
+      return "fa-solid fa-biohazard";
+    }
+    case "Vetro": {
+      return "fa-solid fa-glasses";
+    }
+  }
+}
+
+export function  getColorIcon (waste: string) {
+  switch (waste) {
+    case "Multimateriale": {
+      return "var(--ion-color-primary)";
+    }
+    case "Organico": {
+      return "var(--ion-color-warning)";
+    }
+    case "Pannolini": {
+      return "var(--ion-color-secondary-tint)";
+    }
+    case "Indifferenziato": {
+      return "var(--ion-color-medium)";
+    }
+    case "Carta": {
+      return "var(--ion-color-secondary-tint)";
+    }
+    case "Vetro": {
+      return "var(--ion-color-dark)";
+    }
+  }
+}
