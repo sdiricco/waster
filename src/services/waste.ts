@@ -98,6 +98,106 @@ function isDayOfGlass(date: Date = new Date()) {
   }
 }
 
+function isDayOfGreen(date: Date){
+  const month = date.getMonth();
+  const day = date.getDay();
+  const dayOfMonth = date.getDate();
+
+  //verifico se è venerdì
+  if (day === 1) {
+    return false
+  }
+
+  switch (month) {
+    //Gennaio
+    case 0: {
+      if (dayOfMonth === 17) {
+        return true;
+      }
+      return false;
+    }
+    //Febbraio
+    case 1: {
+      if (dayOfMonth === 14 || dayOfMonth === 28) {
+        return true;
+      }
+      return false;
+    }
+    //Marzo
+    case 2: {
+      if (dayOfMonth === 14 || dayOfMonth === 28) {
+        return true;
+      }
+      return false;
+    }
+    //Aprile
+    case 3: {
+      if (dayOfMonth === 4 || dayOfMonth === 11 || dayOfMonth === 18 || dayOfMonth === 25) {
+        return true;
+      }
+      return false;
+    }
+    //Maggio
+    case 4: {
+      if (dayOfMonth === 2 || dayOfMonth === 9 || dayOfMonth === 16 || dayOfMonth === 23 || dayOfMonth === 30) {
+        return true;
+      }
+      return false;
+    }
+    //Giugno
+    case 5: {
+      if (dayOfMonth === 6 || dayOfMonth === 13 || dayOfMonth === 20 || dayOfMonth === 27) {
+        return true;
+      }
+      return false;
+    }
+    //Luglio
+    case 6: {
+      if (dayOfMonth === 11 || dayOfMonth === 25) {
+        return true;
+      }
+      return false;
+    }
+    //Agosto
+    case 7: {
+      if (dayOfMonth === 8 || dayOfMonth === 22) {
+        return true;
+      }
+      return false;
+    }
+    //Settembre
+    case 8: {
+      if (dayOfMonth === 5 || dayOfMonth === 19 || dayOfMonth === 26) {
+        return true;
+      }
+      return false;
+    }
+    //Ottobre
+    case 9: {
+      if (dayOfMonth === 3 || dayOfMonth === 17 || dayOfMonth === 24) {
+        return true;
+      }
+      return false;
+    }
+    //Novembre
+    case 10: {
+      if (dayOfMonth === 7 || dayOfMonth === 21 || dayOfMonth === 28) {
+        return true;
+      }
+      return false;
+    }
+    //Dicembre
+    case 11: {
+      if (dayOfMonth === 19) {
+        return true;
+      }
+      return false;
+    }
+
+
+  }
+}
+
 export function getWaste(date: Date = new Date()): any {
   const day = date.getDay() -1;
   console.log('day', day);
@@ -107,6 +207,9 @@ export function getWaste(date: Date = new Date()): any {
       return ['Multimateriale']
     }
     case 1: {
+      if (isDayOfGreen(date)) {
+        return ['Organico', 'Verde']
+      }
       return ['Organico']
     }
     case 2: {
@@ -150,6 +253,9 @@ export function getWasteIcon(waste: string) {
     case "Vetro": {
       return "fa-solid fa-glasses";
     }
+    case "Verde": {
+      return "fa-solid fa-leaf";
+    }
   }
 }
 
@@ -172,6 +278,9 @@ export function  getColorIcon (waste: string) {
     }
     case "Vetro": {
       return "var(--ion-color-dark)";
+    }
+    case "Verde": {
+      return "green"
     }
   }
 }

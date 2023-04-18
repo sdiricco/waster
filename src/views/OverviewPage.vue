@@ -92,7 +92,7 @@ const getMonthName = computed(() => {
 })
 
 onMounted(()=>{
-  state.date = getNextDay()
+  state.date = new Date('July 15, 2023 00:00:00');
   state.wasteList = getWaste(state.date)
 })
 
