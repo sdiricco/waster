@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/tabs',
-    component: TabsPage,
+    component: () => import('@/views/TabsPage.vue'),
     children: [
       {
         path: '',
@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'overview',
-        component: OverviewPage
+        component: () => import('@/views/OverviewPage.vue')
       },
       {
         path: 'categories',

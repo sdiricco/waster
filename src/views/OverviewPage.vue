@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Esposizione giornaliera {{counter.count}}</ion-title>
+        <ion-title>Esposizione giornaliera</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -17,12 +17,12 @@
           </ion-card-header>
         </ion-card>
 
-        <template v-if="r.wasteList && r.wasteList.length">
+        <template v-if="state.wasteList && state.wasteList.length">
           <ion-card>
             <ion-card-header>
               <ion-card-title> Esporre </ion-card-title>
             </ion-card-header>
-            <ion-item class="item-wrapper" v-for="w in r.wasteList" :key="w">
+            <ion-item class="item-wrapper" v-for="w in state.wasteList" :key="w">
               <div class="icon-food-wrapper" :style="{ background: getColorIcon(w) }">
                 <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
               </div>
@@ -67,14 +67,14 @@ const counter = useCounterStore();
 /*********************************************************/
 /* INTERFACES */
 /*********************************************************/
-interface REACTIVE_DATA {
+interface STATE {
   date: Date,
   wasteList: Array<string>
 }
 /*********************************************************/
 /* REACTIVE DATA */
 /*********************************************************/
-let r = reactive<REACTIVE_DATA>({
+let state = reactive<STATE>({
   date: new Date(),
   wasteList: []
 });
@@ -82,18 +82,18 @@ let r = reactive<REACTIVE_DATA>({
 /* COMPUTED */
 /*********************************************************/
 const getDayName = computed(() => {
-  return days[r.date.getDay()]
+  return days[state.date.getDay()]
 })
 const getDayNumber = computed(() => {
-  return r.date.getDate()
+  return state.date.getDate()
 })
 const getMonthName = computed(() => {
-  return months[r.date.getMonth()]
+  return months[state.date.getMonth()]
 })
 
 onMounted(()=>{
-  r.date = getNextDay()
-  r.wasteList = getWaste(r.date)
+  state.date = getNextDay()
+  state.wasteList = getWaste(state.date)
 })
 
 </script>
