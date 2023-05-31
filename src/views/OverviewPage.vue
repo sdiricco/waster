@@ -15,7 +15,7 @@
           </div>
           <div class="flex-container">
             <font-awesome-icon class="mr8" color="white" icon="fa-solid fa-truck" />
-            <ion-card-title color="light">Prossima raccolta: {{ state.date.toLocaleDateString() }}</ion-card-title>
+            <ion-card-title color="light">Prossima raccolta: {{ `${state.date.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit' })}` }}</ion-card-title>
           </div>
         </div>
 
