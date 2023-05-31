@@ -277,7 +277,7 @@ export function  getColorIcon (waste: string) {
       return "var(--ion-color-secondary-tint)";
     }
     case "Vetro": {
-      return "var(--ion-color-dark)";
+      return "var(--ion-color-light)";
     }
     case "Verde": {
       return "green"

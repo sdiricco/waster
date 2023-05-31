@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header class="ion-no-border">
       <ion-toolbar>
         <ion-title>Calendario</ion-title>
       </ion-toolbar>
@@ -8,7 +8,16 @@
 
     <ion-content :fullscreen="true" color="light">
       <div>
-        <ion-card-title class="ion-padding"> Prossima raccolta </ion-card-title>
+        <div class="details-container ion-padding">
+          <div class="flex-container">
+            <font-awesome-icon class="mr8" color="white" icon="fa-solid fa-location-dot" />
+            <ion-card-title color="white">Comune di Porcari, 55016</ion-card-title>
+          </div>
+          <div class="flex-container">
+            <font-awesome-icon class="mr8" color="white" icon="fa-solid fa-truck" />
+            <ion-card-title color="light">Prossima raccolta: {{ state.date.toLocaleDateString() }}</ion-card-title>
+          </div>
+        </div>
 
         <template v-if="state.wasteList && state.wasteList.length">
           <ion-card>
@@ -38,7 +47,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonItem } from "@ionic/vue";
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonItem, IonIcon } from "@ionic/vue";
 import { getNextDay } from "../services/date";
 import { getWaste, getColorIcon, getWasteIcon } from "../services/waste";
 import { days, months } from "../services/constants";
@@ -79,7 +88,6 @@ onMounted(() => {
 
 <style scoped>
 .icon-food-wrapper {
-  border: 2px solid var(--ion-color-dark);
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
@@ -94,8 +102,28 @@ onMounted(() => {
   margin: 1rem 0rem;
 }
 
-ion-card{
+ion-card {
   box-shadow: none;
   border-radius: 16px;
 }
+
+.details-container {
+  background-color: var(--ion-color-secondary-tint);
+  color: white;
+
+}
+
+.mr16{
+  margin-right: 16px;
+}
+
+.mr8{
+  margin-right: 8px;
+}
+
+.flex-container{
+  display: flex;
+  align-items: center;
+}
+
 </style>

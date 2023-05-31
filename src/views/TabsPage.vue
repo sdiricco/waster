@@ -40,3 +40,9 @@ import {
   calendarOutline
 } from 'ionicons/icons';
 </script>
+
+<style scoped>
+.tab-selected{
+  color: var(--ion-color-secondary-tint) !important;
+}
+</style>
