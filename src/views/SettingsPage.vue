@@ -2,14 +2,14 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Settings</ion-title>
+        <ion-title>Impostazioni</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
+    <ion-content :fullscreen="true" color="light">
       <ion-card>
           <ion-card-header>
             <ion-card-title>
-              Versione applicazione: 0.0.6
+              Versione applicazione: 0.0.7
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
@@ -33,3 +33,9 @@ import {
   IonCardContent
 } from '@ionic/vue';
 </script>
+
+<style scoped>
+ion-card{
+  box-shadow: none;
+  border-radius: 16px;
+}</style>

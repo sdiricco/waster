@@ -5,7 +5,7 @@
         <ion-title>Categorie</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
+    <ion-content :fullscreen="true" color="light">
       <ion-card>
         <ion-card-header>
           <ion-card-title> Multimateriale </ion-card-title>
@@ -99,5 +99,10 @@ import {
 }
 .danger {
   color: var(--ion-color-danger);
+}
+
+ion-card{
+  box-shadow: none;
+  border-radius: 16px;
 }
 </style>

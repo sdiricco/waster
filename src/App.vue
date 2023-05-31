@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { defineComponent , onMounted} from 'vue';
 
 export default defineComponent({
   name: 'App',
@@ -15,4 +15,8 @@ export default defineComponent({
     IonRouterOutlet
   }
 });
+
+onMounted(()=> {
+  document.body.classList.remove('dark');
+})
 </script>

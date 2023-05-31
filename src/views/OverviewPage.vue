@@ -1,28 +1,21 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <ion-header>
       <ion-toolbar>
-        <ion-title>Esposizione giornaliera</ion-title>
+        <ion-title>Calendario</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
+    <ion-content :fullscreen="true" color="light">
       <div>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Prossima raccolta</ion-card-subtitle>
-            <ion-card-title>
-              {{ `${getDayName} ${getDayNumber} ${getMonthName}` }}
-            </ion-card-title>
-          </ion-card-header>
-        </ion-card>
+        <ion-card-title class="ion-padding"> Prossima raccolta </ion-card-title>
 
         <template v-if="state.wasteList && state.wasteList.length">
           <ion-card>
             <ion-card-header>
-              <ion-card-title> Esporre </ion-card-title>
+              <ion-card-title> {{ `${getDayName} ${getDayNumber} ${getMonthName}` }} </ion-card-title>
             </ion-card-header>
-            <ion-item class="item-wrapper" v-for="w in state.wasteList" :key="w">
+            <ion-item class="item-wrapper" v-for="w in state.wasteList" :key="w" lines="none">
               <div class="icon-food-wrapper" :style="{ background: getColorIcon(w) }">
                 <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
               </div>
@@ -45,57 +38,43 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonItem,
-} from "@ionic/vue";
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonItem } from "@ionic/vue";
 import { getNextDay } from "../services/date";
 import { getWaste, getColorIcon, getWasteIcon } from "../services/waste";
 import { days, months } from "../services/constants";
-import { useCounterStore } from "@/store/counter";
 import { onMounted, reactive, computed } from "vue";
-const counter = useCounterStore();
 
 /*********************************************************/
 /* INTERFACES */
 /*********************************************************/
 interface STATE {
-  date: Date,
-  wasteList: Array<string>
+  date: Date;
+  wasteList: Array<string>;
 }
 /*********************************************************/
 /* REACTIVE DATA */
 /*********************************************************/
 let state = reactive<STATE>({
   date: new Date(),
-  wasteList: []
+  wasteList: [],
 });
 /*********************************************************/
 /* COMPUTED */
 /*********************************************************/
 const getDayName = computed(() => {
-  return days[state.date.getDay()]
-})
+  return days[state.date.getDay()];
+});
 const getDayNumber = computed(() => {
-  return state.date.getDate()
-})
+  return state.date.getDate();
+});
 const getMonthName = computed(() => {
-  return months[state.date.getMonth()]
-})
+  return months[state.date.getMonth()];
+});
 
-onMounted(()=>{
+onMounted(() => {
   state.date = getNextDay();
-  state.wasteList = getWaste(state.date)
-})
-
+  state.wasteList = getWaste(state.date);
+});
 </script>
 
 <style scoped>
@@ -113,5 +92,10 @@ onMounted(()=>{
 
 .item-wrapper {
   margin: 1rem 0rem;
+}
+
+ion-card{
+  box-shadow: none;
+  border-radius: 16px;
 }
 </style>
