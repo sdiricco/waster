@@ -86,7 +86,7 @@ export function getColorIcon(waste: string) {
     [Wastes.DIAPERS]: "#e47dbd",
     [Wastes.UNDIFFERENTIATED]: "#494b4e",
     [Wastes.PAPER]: "#000",
-    [Wastes.GLASS]: "#494b4e",
+    [Wastes.GLASS]: "#5dd648",
     [Wastes.GREEN]: "#00c850",
   }[waste];
 }

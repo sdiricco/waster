@@ -7,7 +7,7 @@
     </ion-header>
     <ion-content :fullscreen="true" color="light">
       <waste-info-details v-for="w in Wastes" :name="getWasteName(w)" :key="w" :description="getWasteDescription(w)">
-        <div class="rounded-circle d-flex align-items-center justify-content-center me-4" :style="{ background: getColorIcon(w), height: '4rem', width: '4rem' }">
+        <div class="rounded-circle d-flex align-items-center justify-content-center" :style="{ background: getColorIcon(w), height: '4rem', width: '4rem' }">
           <font-awesome-icon size="2x" color="white" :icon="getWasteIcon(w)" />
         </div>
       </waste-info-details>
