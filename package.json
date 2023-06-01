@@ -1,6 +1,6 @@
 {
-  "name": "waste-app",
-  "version": "0.0.3",
+  "name": "waster-porcari",
+  "version": "0.0.8",
   "private": true,
   "description": "A waste project",
   "scripts": {
