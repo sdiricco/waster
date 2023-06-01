@@ -6,6 +6,11 @@ import router from './router';
 import './registerServiceWorker'
 
 /*********************************************
+ * BOOTSTRAP
+ *********************************************/
+import 'bootstrap/dist/css/bootstrap.css'
+
+/*********************************************
  * IONIC
  *********************************************/
 import { IonicVue } from '@ionic/vue';

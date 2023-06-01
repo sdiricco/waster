@@ -38,4 +38,5 @@ import {
 ion-card{
   box-shadow: none;
   border-radius: 16px;
+  border: 1px solid #ddd
 }</style>
