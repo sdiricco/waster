@@ -1,6 +1,5 @@
 export enum Wastes {
   MULTI_MATERIAL = "multi-material",
-  PLASTIC = "plastic",
   PAPER = "paper",
   ORGANIC = "organic",
   GREEN = "green",
@@ -21,7 +20,7 @@ enum Months {
   SEPTEMBER,
   OCTOBER,
   NOVEMBER,
-  DECEMBER
+  DECEMBER,
 }
 
 enum Days {
@@ -31,10 +30,10 @@ enum Days {
   THURSDAY,
   FRIDAY,
   SATURDAY,
-  SUNDAY
+  SUNDAY,
 }
 
-const glassCalendar:any = {
+const glassCalendar: any = {
   [Months.JANUARY]: [6, 20],
   [Months.FEBRUARY]: [3, 17],
   [Months.MARCH]: [3, 17, 31],
@@ -47,9 +46,9 @@ const glassCalendar:any = {
   [Months.OCTOBER]: [13, 27],
   [Months.NOVEMBER]: [10, 24],
   [Months.DECEMBER]: [8, 22],
-}
+};
 
-const greenCalendar:any = {
+const greenCalendar: any = {
   [Months.JANUARY]: [17],
   [Months.FEBRUARY]: [14, 28],
   [Months.MARCH]: [14, 28],
@@ -62,32 +61,84 @@ const greenCalendar:any = {
   [Months.OCTOBER]: [3, 17, 24],
   [Months.NOVEMBER]: [7, 21, 28],
   [Months.DECEMBER]: [19],
-}
-
+};
 
 export function getWaste(date: Date = new Date()): any {
   const day = date.getDay();
 
-  const weekCalendar:any = {
+  const weekCalendar: any = {
     [Days.MONDAY]: [Wastes.MULTI_MATERIAL],
     [Days.TUESDAY]: [Wastes.ORGANIC].concat(checkCalendar(date, greenCalendar) ? [Wastes.GREEN] : []),
     [Days.WEDNESDAY]: [Wastes.DIAPERS, Wastes.UNDIFFERENTIATED],
     [Days.THURSDAY]: [Wastes.PAPER],
     [Days.FRIDAY]: checkCalendar(date, glassCalendar) ? [Wastes.GLASS] : [Wastes.MULTI_MATERIAL],
     [Days.SATURDAY]: [Wastes.DIAPERS, Wastes.ORGANIC],
-    [Days.SUNDAY]: []
-  }
+    [Days.SUNDAY]: [],
+  };
 
-  return weekCalendar[day]
+  return weekCalendar[day];
 }
 
+export function getColorIcon(waste: string) {
+  return {
+    [Wastes.MULTI_MATERIAL]: "#ffd623",
+    [Wastes.ORGANIC]: "#e09524",
+    [Wastes.DIAPERS]: "#e47dbd",
+    [Wastes.UNDIFFERENTIATED]: "#494b4e",
+    [Wastes.PAPER]: "#000",
+    [Wastes.GLASS]: "#494b4e",
+    [Wastes.GREEN]: "#00c850",
+  }[waste];
+}
 
-function checkCalendar(date:Date, calendar: any){
+export function getWasteDescription(waste: string) {
+  return {
+    [Wastes.MULTI_MATERIAL]: {
+      in: "SOLO imballaggi in plastica, in polistirolo, in latta e tetrapack",
+      out: "Tutti gli oggetti che non sono imballaggi, oggetti in plastica e plastica compostabile",
+    },
+    [Wastes.ORGANIC]: {
+      in: "Avanzi di cucina, shopper in plastica compostabile, fondi di caffè, filtri di tè",
+      out: "Salviette umidificate, mozziconi di sigarette",
+    },
+    [Wastes.DIAPERS]: {
+      in: "SOLO pannolini",
+      out: "",
+    },
+    [Wastes.UNDIFFERENTIATED]: {
+      in: "assorbenti, calze di nylon, stracci non riciclabili, mozziconi di sigarette, polveri e sacchetto dell’aspirapolvere, cassette audio, DVD, rasoi, spazzole, carta plastificata e da forno, cerotti, gomme da masticare, scontrini termici",
+      out: "Tutti i materiali separabili e riciclabili (vetro, carta, cartone e cartoncino, plastica, acciaio e alluminio, organico), tessili, piccoli e grandi RAEE (Rifiuti da Apparecchiature Elettriche ed Elettroniche), ingombranti, farmaci, pile e accumulatori, olio vegetale esausto, legno",
+    },
+    [Wastes.PAPER]: {
+      in: "giornali, riviste, libri, quaderni, moduli continui, scatole di prodotti alimentari e imballaggi in cartone (piegati e - schiacciati) poliaccoppiati (Tetra pak®, brik del latte e del succo di frutta), senza parti in plastica e residui",
+      out: "carta con residui di colla, contenitori unti (es. cartone della pizza se sporco), carta accoppiata, carta chimica (es. fax, scontrini), carta autocopiante, bicchieri e piatti di carta",
+    },
+    [Wastes.GLASS]: {
+      in: "Bottiglie, vasetti, fiaschi, barattoli",
+      out: "Ceramica, porcellana, cristallo, lampadine e neon, specchi, lastre di vetro, damigiane, pirofile in pirex, tappi",
+    },
+    [Wastes.GREEN]: {
+      in: "rami e foglie, erba, vari residui vegetali",
+      out: "ceramica, calcinacci e materiale edilizio, sassi",
+    },
+  }[waste];
+}
+
+export function getWasteName(waste: string) {
+  return {
+    [Wastes.MULTI_MATERIAL]: "Multimateriale",
+    [Wastes.ORGANIC]: "Organico",
+    [Wastes.DIAPERS]: "Pannolini",
+    [Wastes.UNDIFFERENTIATED]: "Indifferenziata",
+    [Wastes.PAPER]: "Carta",
+    [Wastes.GLASS]: "Vetro",
+    [Wastes.GREEN]: "Verde",
+  }[waste];
+}
+
+function checkCalendar(date: Date, calendar: any) {
   const month = date.getMonth();
   const dayOfMonth = date.getDate();
-  const daysInThisMonth = calendar[month]
-  return daysInThisMonth.includes(dayOfMonth)
+  const daysInThisMonth = calendar[month];
+  return daysInThisMonth.includes(dayOfMonth);
 }
-
-
-

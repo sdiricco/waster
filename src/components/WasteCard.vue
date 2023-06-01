@@ -6,7 +6,7 @@
     </ion-card-header>
       <ion-item class="pb-3" v-for="w in wastes" :key="w" lines="none">
         <div class="rounded-circle d-flex align-items-center justify-content-center me-4" :style="{ background: getColorIcon(w), height: '4rem', width: '4rem' }">
-          <font-awesome-icon size="2x" color="black" :icon="getWasteIcon(w)" />
+          <font-awesome-icon size="2x" color="white" :icon="getWasteIcon(w)" />
         </div>
         <div>
           <span class="fw-bold">{{ getWasteName(w) }}</span>
@@ -19,7 +19,8 @@
 import { IonCard, IonCardHeader, IonCardTitle, IonItem, IonCardSubtitle } from "@ionic/vue";
 import { days, months } from "@/services/constants";
 import { computed, defineProps } from "vue";
-import {getColorIcon, getWasteIcon, getWasteName} from "@/services/utils"
+import {getWasteIcon, getWasteName} from "@/services/utils"
+import {getColorIcon} from "@/services/waste-porcari"
 
 const props = defineProps({
   wastes: {

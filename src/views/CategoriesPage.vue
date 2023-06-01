@@ -6,81 +6,11 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true" color="light">
-      <ion-card>
-        <ion-card-header class="h-container">
-          <ion-card-title class="ion-padding"> Multimateriale </ion-card-title>
-          <div class="icon-food-wrapper" :style="{ background: 'var(--ion-color-primary)' }">
-            <font-awesome-icon size="2x" color="black" icon="fa-solid fa-bottle-water" />
-          </div>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-subtitle>
-            <ion-text color="success">Cosa mettere</ion-text>
-          </ion-card-subtitle>
-          SOLO imballaggi in plastica, in polistirolo, in latta e tetrapack
-          <ion-card-subtitle>
-            <ion-text color="danger">Cosa non mettere</ion-text>
-          </ion-card-subtitle>
-          Tutti gli oggetti che non sono imballaggi, oggetti in plastica e plastica compostabile
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header class="h-container">
-          <ion-card-title class="ion-padding" > Organico </ion-card-title>
-          <div class="icon-food-wrapper" :style="{ background: 'var(--ion-color-warning)' }">
-            <font-awesome-icon size="2x" color="black" icon="fa-solid fa-fish" />
-          </div>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-subtitle>
-            <ion-text color="success">Cosa mettere</ion-text>
-          </ion-card-subtitle>
-          Avanzi di cucina, shopper in plastica compostabile, fondi di caffè, filtri di tè
-          <ion-card-subtitle>
-            <ion-text color="danger">Cosa non mettere</ion-text>
-          </ion-card-subtitle>
-          Salviette umidificate, mozziconi di sigarette
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header class="h-container">
-          <ion-card-title class="ion-padding"> Vetro </ion-card-title>
-          <div class="icon-food-wrapper" :style="{ background: 'var(--ion-color-light)' }">
-            <font-awesome-icon size="2x" color="black" icon="fa-solid fa-glasses" />
-          </div>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-subtitle>
-            <ion-text color="success">Cosa mettere</ion-text>
-          </ion-card-subtitle>
-          Bottiglie, vasetti, fiaschi, barattoli
-          <ion-card-subtitle>
-            <ion-text color="danger">Cosa non mettere</ion-text>
-          </ion-card-subtitle>
-          Ceramica, porcellana, cristallo, lampadine e neon, specchi, lastre di vetro, damigiane, pirofile in pirex, tappi
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header class="h-container">
-          <ion-card-title class="ion-padding"> Rifiuto non riciclabile </ion-card-title>
-          <div class="icon-food-wrapper" :style="{ background: 'var(--ion-color-medium)' }">
-            <font-awesome-icon size="2x" color="black" icon="fa-solid fa-biohazard" />
-          </div>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-subtitle>
-            <ion-text color="success">Cosa mettere</ion-text>
-          </ion-card-subtitle>
-          Mascherine, guanti, giocattoli, mozziconi di sigaretta e tutto ciò che non è differenziabile.
-          <ion-card-subtitle>
-            <ion-text color="danger">Cosa non mettere</ion-text>
-          </ion-card-subtitle>
-          Tutti i materiali che per volume, peso o qualità non possono essere inseriti nel sacco grigio, vanno consegnati presso i Centri di Raccolta.
-        </ion-card-content>
-      </ion-card>
+      <waste-info-details v-for="w in Wastes" :name="getWasteName(w)" :key="w" :description="getWasteDescription(w)">
+        <div class="rounded-circle d-flex align-items-center justify-content-center me-4" :style="{ background: getColorIcon(w), height: '4rem', width: '4rem' }">
+          <font-awesome-icon size="2x" color="white" :icon="getWasteIcon(w)" />
+        </div>
+      </waste-info-details>
     </ion-content>
   </ion-page>
 </template>
@@ -93,12 +23,10 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardContent,
-  IonCardSubtitle,
 } from "@ionic/vue";
+import WasteInfoDetails from "@/components/WasteInfoDetails.vue";
+import {Wastes, getWasteDescription, getWasteName, getColorIcon} from "@/services/waste-porcari"
+import {getWasteIcon} from "@/services/utils"
 </script>
 
 <style scoped>
@@ -125,10 +53,5 @@ ion-card {
   border: 1px solid #ddd
 }
 
-.h-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
+
 </style>
