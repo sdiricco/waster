@@ -19,16 +19,16 @@ export function getWasteName(waste: string) {
 export function getColorIcon(waste: string) {
   return {
     [Wastes.MULTI_MATERIAL]: "var(--ion-color-primary)",
-    [Wastes.PLASTIC_AND_METALS]: "var(--ion-color-primary)",
+    [Wastes.PLASTIC_AND_METALS]: "#00a7df",
     [Wastes.PLASTIC]: "var(--ion-color-primary)",
     [Wastes.PAPER]: "var(--ion-color-secondary-tint)",
-    [Wastes.PAPER_AND_CARDBOARD]: "var(--ion-color-secondary-tint)",
-    [Wastes.ORGANIC]: "var(--ion-color-warning)",
+    [Wastes.PAPER_AND_CARDBOARD]: "#f9bc00",
+    [Wastes.ORGANIC]: "#8b5018",
     [Wastes.GREEN]: "green",
     [Wastes.DIAPERS]: "var(--ion-color-secondary-tint)",
-    [Wastes.GLASS]: "var(--ion-color-light)",
+    [Wastes.GLASS]: "#004e88",
     [Wastes.UNDIFFERENTIATED]: "var(--ion-color-medium)",
-    [Wastes.DRY_RESIDUE]: "var(--ion-color-medium)",
+    [Wastes.DRY_RESIDUE]: "#736f62",
   }[waste];
 }
 
