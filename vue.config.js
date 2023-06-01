@@ -2,6 +2,6 @@
 module.exports = {
     // ...other vue-cli plugin options...
     pwa: {
-      name: 'Differenziata Porcari', // <---- this is PWA name
+      name: 'Differenziata Bassano del grappa', // <---- this is PWA name
     }
   }

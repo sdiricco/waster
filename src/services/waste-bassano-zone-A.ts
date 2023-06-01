@@ -1,12 +1,15 @@
 export enum Wastes {
   MULTI_MATERIAL = "multi-material",
+  PLASTIC_AND_METALS = "plastic-and-metals",
   PLASTIC = "plastic",
   PAPER = "paper",
+  PAPER_AND_CARDBOARD = "paper-and-cardboard",
   ORGANIC = "organic",
   GREEN = "green",
   DIAPERS = "diapers",
   GLASS = "glass",
   UNDIFFERENTIATED = "undifferentiated",
+  DRY_RESIDUE = "dry-residue",
 }
 
 enum Months {
@@ -69,12 +72,12 @@ export function getWaste(date: Date = new Date()): any {
   const day = date.getDay();
 
   const weekCalendar:any = {
-    [Days.MONDAY]: [Wastes.MULTI_MATERIAL],
-    [Days.TUESDAY]: [Wastes.ORGANIC].concat(checkCalendar(date, greenCalendar) ? [Wastes.GREEN] : []),
-    [Days.WEDNESDAY]: [Wastes.DIAPERS, Wastes.UNDIFFERENTIATED],
-    [Days.THURSDAY]: [Wastes.PAPER],
-    [Days.FRIDAY]: checkCalendar(date, glassCalendar) ? [Wastes.GLASS] : [Wastes.MULTI_MATERIAL],
-    [Days.SATURDAY]: [Wastes.DIAPERS, Wastes.ORGANIC],
+    [Days.MONDAY]: [Wastes.DRY_RESIDUE, Wastes.ORGANIC],
+    [Days.TUESDAY]: [Wastes.PLASTIC_AND_METALS, Wastes.GLASS],
+    [Days.WEDNESDAY]: [Wastes.DRY_RESIDUE, Wastes.ORGANIC, Wastes.PAPER_AND_CARDBOARD],
+    [Days.THURSDAY]: [],
+    [Days.FRIDAY]: [Wastes.PAPER_AND_CARDBOARD, Wastes.PLASTIC_AND_METALS, Wastes.GLASS],
+    [Days.SATURDAY]: [Wastes.DRY_RESIDUE, Wastes.ORGANIC],
     [Days.SUNDAY]: []
   }
 
