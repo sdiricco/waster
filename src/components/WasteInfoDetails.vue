@@ -8,41 +8,36 @@
     </ion-card-header>
     <ion-card-content>
       <ion-card-subtitle>
-        <ion-text color="success">Cosa mettere</ion-text>
+        <ion-text color="success" class="fw-bold fs-6">Cosa mettere</ion-text>
       </ion-card-subtitle>
-        {{ props.description.in }}
-      <ion-card-subtitle>
-        <ion-text color="danger">Cosa non mettere</ion-text>
-      </ion-card-subtitle>
+      {{ props.description.in }}
+      <template v-if="props.description.out">
+        <ion-card-subtitle class="mt-2">
+          <ion-text color="danger" class="fw-bold fs-6">Cosa non mettere</ion-text>
+        </ion-card-subtitle>
         {{ props.description.out }}
+      </template>
     </ion-card-content>
   </ion-card>
 </template>
 <script setup lang="ts">
-import {
-  IonText,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardContent,
-  IonCardSubtitle,
-} from "@ionic/vue";
-import {defineProps} from "vue"
+import { IonText, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonCardSubtitle } from "@ionic/vue";
+import { defineProps } from "vue";
 
 const props = defineProps({
-    name: {
-        type: String,
-        default: ""
-    },
-    color: {
-        type: String,
-        default: ''
-    },
-    description: {
-        type: Object,
-        default: () => ({in: '', out: ''}) 
-    }
-})
+  name: {
+    type: String,
+    default: "",
+  },
+  color: {
+    type: String,
+    default: "",
+  },
+  description: {
+    type: Object,
+    default: () => ({ in: "", out: "" }),
+  },
+});
 </script>
 
 <style scoped>
@@ -51,4 +46,5 @@ const props = defineProps({
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}</style>
+}
+</style>

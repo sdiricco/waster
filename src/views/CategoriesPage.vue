@@ -17,7 +17,6 @@
 
 <script lang="ts" setup>
 import {
-  IonText,
   IonPage,
   IonHeader,
   IonToolbar,
@@ -25,7 +24,7 @@ import {
   IonContent,
 } from "@ionic/vue";
 import WasteInfoDetails from "@/components/WasteInfoDetails.vue";
-import {Wastes, getWasteDescription, getWasteName, getColorIcon} from "@/services/waste-porcari"
+import {Wastes, getWasteDescription, getWasteName, getColorIcon} from "@/services/waste-bassano-zone-A"
 import {getWasteIcon} from "@/services/utils"
 </script>
 
