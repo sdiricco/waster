@@ -57,7 +57,9 @@ const pinia = createPinia()
 const app = createApp(App)
   .component('font-awesome-icon', FontAwesomeIcon)
   .use(pinia)
-  .use(IonicVue)
+  .use(IonicVue, {
+    mode: 'md'
+  })
   .use(router);
   
 router.isReady().then(() => {
