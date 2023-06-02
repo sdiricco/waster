@@ -1,16 +1,5 @@
-import { Wastes } from "./waste-porcari";
+import { Wastes } from "./waste";
 
-export function getWasteName(waste: string) {
-  return {
-    [Wastes.MULTI_MATERIAL]: "Multimateriale",
-    [Wastes.ORGANIC]: "Organico",
-    [Wastes.DIAPERS]: "Pannolini",
-    [Wastes.UNDIFFERENTIATED]: "Indifferenziata",
-    [Wastes.PAPER]: "Carta",
-    [Wastes.GLASS]: "Vetro",
-    [Wastes.GREEN]: "Verde",
-  }[waste];
-}
 export function getWasteIcon(waste: string) {
   return {
     [Wastes.MULTI_MATERIAL]: "fa-solid fa-bottle-water",

@@ -5,7 +5,7 @@
       <ion-refresher slot="fixed" @ionRefresh="handleRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
-      <MunicipalityCard municipality="Porcari" :next-date="state.date" />
+      <MunicipalityCard municipality="" :next-date="state.date" />
       <WasteCard :date="state.date" :wastes="state.wasteList" />
     </AppContent>
   </ion-page>
@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { IonPage, IonRefresher, IonRefresherContent } from "@ionic/vue";
 import { getNextDay } from "../services/date";
-import * as wasteBassanoZoneA from "@/services/waste-porcari";
+import * as waste from "@/services/waste";
 import { onMounted, reactive } from "vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppContent from "@/components/AppContent.vue";
@@ -35,18 +35,18 @@ let state = reactive<STATE>({
   date: new Date(),
   wasteList: [],
 });
-const handleRefresh = (event: CustomEvent) => {
+const handleRefresh = (event: any) => {
   setTimeout(() => {
     // Any calls to load data go here
     state.date = getNextDay();
-    state.wasteList = wasteBassanoZoneA.getWaste(state.date);
+    state.wasteList = waste.getWaste(state.date);
     event.target.complete();
   }, 1000);
 };
 
 onMounted(() => {
   state.date = getNextDay();
-  state.wasteList = wasteBassanoZoneA.getWaste(state.date);
+  state.wasteList = waste.getWaste(state.date);
 });
 </script>
 
