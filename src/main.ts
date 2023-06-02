@@ -46,10 +46,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faUserSecret, faDrumstickBite, faNewspaper, faFish, faBottleWater, faBaby, faBiohazard, faGlasses, faLeaf, faMap, faLocation, faLocationDot, faTruck } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faDrumstickBite, faNewspaper, faFish, faBottleWater, faBaby, faBiohazard, faGlasses, faLeaf, faMap, faLocation, faLocationDot, faTruck, faWineBottle } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret, faDrumstickBite, faNewspaper, faFish, faTwitter, faBottleWater, faBaby, faBiohazard, faGlasses, faLeaf, faMap, faLocation, faLocationDot, faTruck)
+library.add(faUserSecret, faDrumstickBite, faNewspaper, faFish, faTwitter, faBottleWater, faBaby, faBiohazard, faGlasses, faLeaf, faMap, faLocation, faLocationDot, faTruck, faWineBottle)
 
 const pinia = createPinia()
 

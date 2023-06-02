@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
+import { createRouter, createWebHistory, createWebHashHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 
 const homePage = () => import('@/views/HomePage.vue')
@@ -10,16 +10,17 @@ const settingsPage = () => import('@/views/SettingsPage.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home/overview'
+    redirect: '/home'
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/'
   },
   {
     path: '/home',
     component: homePage,
+    redirect: '/home/overview',
     children: [
-      {
-        path: '',
-        redirect: '/home/overview'
-      },
       {
         path: 'overview',
         component: overviewPage
@@ -37,8 +38,17 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.length === 0) {
+    // Se la rotta non è valida, reindirizza alla home
+    next('/');
+  } else {
+    next();
+  }
+});
 
 export default router

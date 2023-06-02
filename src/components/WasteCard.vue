@@ -19,7 +19,8 @@
 import { IonCard, IonCardHeader, IonCardTitle, IonItem, IonCardSubtitle } from "@ionic/vue";
 import { days, months } from "@/services/constants";
 import { computed, defineProps } from "vue";
-import {getColorIcon, getWasteIcon, getWasteName} from "@/services/utils"
+import {getWasteIcon, getWasteName} from "@/services/utils"
+import {getColorIcon} from "@/services/waste-porcari"
 
 const props = defineProps({
   wastes: {
