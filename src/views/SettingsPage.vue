@@ -9,7 +9,7 @@
       <ion-card>
           <ion-card-header>
             <ion-card-title>
-              Versione applicazione: 0.0.8
+              Versione applicazione: 0.0.9
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>

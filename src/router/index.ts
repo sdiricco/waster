@@ -10,16 +10,17 @@ const settingsPage = () => import('@/views/SettingsPage.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home/overview'
+    redirect: '/home'
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/'
   },
   {
     path: '/home',
     component: homePage,
+    redirect: '/home/overview',
     children: [
-      {
-        path: '',
-        redirect: '/home/overview'
-      },
       {
         path: 'overview',
         component: overviewPage
@@ -40,5 +41,14 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.length === 0) {
+    // Se la rotta non è valida, reindirizza alla home
+    next('/');
+  } else {
+    next();
+  }
+});
 
 export default router
