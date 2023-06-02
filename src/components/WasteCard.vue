@@ -26,7 +26,7 @@ import { IonCard, IonCardHeader, IonCardTitle, IonItem, IonCardSubtitle } from "
 import { days, months } from "@/services/constants";
 import { computed, defineProps } from "vue";
 import {getWasteIcon} from "@/services/utils"
-import {getColorIcon, getWasteName} from "@/services/waste-porcari"
+import {getColorIcon, getWasteName} from "@/services/waste"
 
 const props = defineProps({
   wastes: {
