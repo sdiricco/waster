@@ -15,7 +15,7 @@
 import { IonPage, IonRefresher, IonRefresherContent } from "@ionic/vue";
 import { getNextDay } from "../services/date";
 import * as waste from "@/services/waste";
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, ref, onBeforeUnmount } from "vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppContent from "@/components/AppContent.vue";
 import MunicipalityCard from "@/components/MunicipalityCard.vue";
@@ -38,16 +38,36 @@ let state = reactive<STATE>({
 const handleRefresh = (event: any) => {
   setTimeout(() => {
     // Any calls to load data go here
-    state.date = getNextDay();
-    state.wasteList = waste.getWaste(state.date);
+    updateState()
     event.target.complete();
   }, 1000);
 };
 
-onMounted(() => {
+
+function updateState(){
   state.date = getNextDay();
   state.wasteList = waste.getWaste(state.date);
+}
+
+function onVisibilityChange(){
+  if (document.visibilityState === 'visible') {
+    // L'applicazione è tornata in primo piano (visibile)
+    console.log('visibility', true)
+    updateState()
+  } else {
+    // L'applicazione è stata ridotta a icona o messa in background (nascosta)
+    console.log('visibility', false)
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('visibilitychange',onVisibilityChange)
+  updateState()
 });
+
+onBeforeUnmount(() => {
+  document.removeEventListener('visibilitychange', onVisibilityChange)
+})
 </script>
 
 <style scoped></style>

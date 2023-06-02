@@ -25,7 +25,7 @@ import {
   IonContent,
 } from "@ionic/vue";
 import WasteInfoDetails from "@/components/WasteInfoDetails.vue";
-import {Wastes, getWasteDescription, getWasteName, getColorIcon} from "@/services/waste-porcari"
+import {Wastes, getWasteDescription, getWasteName, getColorIcon} from "@/services/waste"
 import {getWasteIcon} from "@/services/utils"
 </script>
 
