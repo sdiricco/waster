@@ -5,7 +5,7 @@
       <ion-refresher slot="fixed" @ionRefresh="handleRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
-      <MunicipalityCard municipality="" :next-date="state.date" />
+      <MunicipalityCard municipality="Porcari" :next-date="state.date" />
       <WasteCard :date="state.date" :wastes="state.wasteList" />
     </AppContent>
   </ion-page>
