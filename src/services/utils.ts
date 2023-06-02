@@ -1,4 +1,4 @@
-import { Wastes } from "./waste-bassano-zone-A";
+import { Wastes } from "./waste";
 
 
 export function getWasteIcon(waste: string) {

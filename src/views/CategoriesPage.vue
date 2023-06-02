@@ -24,11 +24,7 @@ import {
   IonContent,
 } from "@ionic/vue";
 import WasteInfoDetails from "@/components/WasteInfoDetails.vue";
-<<<<<<< HEAD
-import {Wastes, getWasteDescription, getWasteName, getColorIcon} from "@/services/waste-bassano-zone-A"
-=======
 import {Wastes, getWasteDescription, getWasteName, getColorIcon} from "@/services/waste"
->>>>>>> altopascio-55011
 import {getWasteIcon} from "@/services/utils"
 </script>
 
