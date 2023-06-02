@@ -38,7 +38,7 @@ let state = reactive<STATE>({
 });
 
 onMounted(() => {
-  state.date = new Date(2023, 11, 11);
+  state.date = getNextDay();
   state.wasteList = wastePorcari.getWaste(state.date);
 });
 </script>
