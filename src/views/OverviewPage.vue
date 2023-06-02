@@ -2,16 +2,17 @@
   <ion-page>
     <AppHeader title="Calendario" />
     <AppContent>
-      <div>
-        <MunicipalityCard municipality="Bassano del grappa, zona C" :next-date="state.date" />
-        <WasteCard :date="state.date" :wastes="state.wasteList" />
-      </div>
+      <ion-refresher slot="fixed" @ionRefresh="handleRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <MunicipalityCard municipality="Bassano del grappa, zona C" :next-date="state.date" />
+      <WasteCard :date="state.date" :wastes="state.wasteList" />
     </AppContent>
   </ion-page>
 </template>
 
 <script lang="ts" setup>
-import { IonPage } from "@ionic/vue";
+import { IonPage, IonRefresher, IonRefresherContent } from "@ionic/vue";
 import { getNextDay } from "../services/date";
 import * as wasteBassanoZoneA from "@/services/waste-bassano-zone-A";
 import { onMounted, reactive } from "vue";
@@ -34,10 +35,18 @@ let state = reactive<STATE>({
   date: new Date(),
   wasteList: [],
 });
+const handleRefresh = (event: CustomEvent) => {
+  setTimeout(() => {
+    // Any calls to load data go here
+    state.date = getNextDay();
+    state.wasteList = wasteBassanoZoneA.getWaste(state.date);
+    event.target.complete();
+  }, 1000);
+};
 
 onMounted(() => {
   state.date = getNextDay();
-  state.wasteList = wasteBassanoZoneA.getWaste(state.date);  
+  state.wasteList = wasteBassanoZoneA.getWaste(state.date);
 });
 </script>
 
