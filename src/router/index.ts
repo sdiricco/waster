@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from '@ionic/vue-router';
+import { createRouter, createWebHashHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 
 const homePage = () => import('@/views/HomePage.vue')
