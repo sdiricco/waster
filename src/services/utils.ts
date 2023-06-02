@@ -1,4 +1,4 @@
-import { Wastes } from "./waste-porcari";
+import { Wastes } from "./waste-altopascio";
 
 export function getWasteName(waste: string) {
   return {

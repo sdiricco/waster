@@ -3,7 +3,7 @@
     <AppHeader title="Calendario" />
     <AppContent>
       <div>
-        <MunicipalityCard municipality="Porcari" :next-date="state.date" />
+        <MunicipalityCard municipality="Altopascio" :next-date="state.date" />
         <WasteCard v-if="state.wasteList && state.wasteList.length" :date="state.date" :wastes="state.wasteList" />
         <NoWasteCard v-else />
       </div>
@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { IonPage } from "@ionic/vue";
 import { getNextDay } from "../services/date";
-import * as wastePorcari from "@/services/waste-porcari";
+import * as wastePorcari from "@/services/waste-altopascio";
 import { onMounted, reactive } from "vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppContent from "@/components/AppContent.vue";
@@ -38,7 +38,7 @@ let state = reactive<STATE>({
 });
 
 onMounted(() => {
-  state.date = getNextDay();
+  state.date = new Date(2023, 11, 11);
   state.wasteList = wastePorcari.getWaste(state.date);
 });
 </script>
