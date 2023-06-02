@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { IonPage, IonRefresher, IonRefresherContent } from "@ionic/vue";
 import { getNextDay } from "../services/date";
-import * as wasteBassanoZoneA from "@/services/waste-bassano-zone-A";
+import * as waste from "@/services/waste-bassano-zone-A";
 import { onMounted, reactive } from "vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppContent from "@/components/AppContent.vue";
@@ -35,18 +35,18 @@ let state = reactive<STATE>({
   date: new Date(),
   wasteList: [],
 });
-const handleRefresh = (event: CustomEvent) => {
+const handleRefresh = (event: any) => {
   setTimeout(() => {
     // Any calls to load data go here
     state.date = getNextDay();
-    state.wasteList = wasteBassanoZoneA.getWaste(state.date);
+    state.wasteList = waste.getWaste(state.date);
     event.target.complete();
   }, 1000);
 };
 
 onMounted(() => {
   state.date = getNextDay();
-  state.wasteList = wasteBassanoZoneA.getWaste(state.date);
+  state.wasteList = waste.getWaste(state.date);
 });
 </script>
 
