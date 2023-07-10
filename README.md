@@ -1,6 +1,6 @@
 # Waster app
  
-App raccolta differenziata per il comune di Altopascio. La lista dei comuni disponibili la trovi nel menù di selezione del branch.
+App raccolta differenziata per il comune di Bassano del grappa. La lista dei comuni disponibili la trovi nel menù di selezione del branch.
 
 ![](./images/screen-1.png)
 ![](./images/screen-2.png)
