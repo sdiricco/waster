@@ -48,10 +48,10 @@ export function getWaste(date: Date = new Date()): any {
 
   const weekCalendar:any = {
     [Days.MONDAY]: checkIfDayOfPlasticAndMetals(date) ? [Wastes.PLASTIC_AND_METALS] : [],
-    [Days.TUESDAY]: checkIfDayOfDryResidue(date) ? [Wastes.DRY_RESIDUE] : [],
-    [Days.WEDNESDAY]: [Wastes.ORGANIC],
+    [Days.TUESDAY]: checkIfDayOfDryResidue(date) ? [Wastes.DRY_RESIDUE, Wastes.ORGANIC] : [Wastes.ORGANIC],
+    [Days.WEDNESDAY]: [],
     [Days.THURSDAY]: checkIfDayOfPaperAndCardboard(date) ? [Wastes.PAPER_AND_CARDBOARD] : [],
-    [Days.FRIDAY]: checkIfDayOfGlass(date) ? [Wastes.GLASS] : [],
+    [Days.FRIDAY]: checkIfDayOfGlass(date) ? [Wastes.GLASS, Wastes.ORGANIC] : [Wastes.ORGANIC],
     [Days.SATURDAY]: [Wastes.ORGANIC],
     [Days.SUNDAY]: []
   }
