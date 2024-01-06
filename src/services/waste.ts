@@ -22,10 +22,10 @@ enum Days {
   SUNDAY,
 }
 
-const firstDayOfGlass = moment('2023-01-20') 
-const firstDayOfPlasticAndMetals =  moment('2023-01-02')
-const firstDayOfDryResidue = moment('2023-01-10')
-const firstDayOfPaperAndCardboard = moment('2023-01-12')
+const firstDayOfGlass = moment('2024-01-19') 
+const firstDayOfPlasticAndMetals =  moment('2024-01-15')
+const firstDayOfDryResidue = moment('2024-01-09')
+const firstDayOfPaperAndCardboard = moment('2024-01-11')
 
 export function checkIfDayOfGlass(date: Date){
   return !((moment(date).dayOfYear() - firstDayOfGlass.dayOfYear())%28)
