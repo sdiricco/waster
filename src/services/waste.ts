@@ -34,25 +34,25 @@ enum Days {
 }
 
 const glassCalendar: any = {
-  [Months.JANUARY]: [6, 20],
-  [Months.FEBRUARY]: [3, 17],
-  [Months.MARCH]: [3, 17, 31],
-  [Months.APRIL]: [14, 28],
-  [Months.MAY]: [12, 26],
-  [Months.JUNE]: [9, 23],
-  [Months.JULY]: [7, 21],
-  [Months.AUGUST]: [4, 18],
-  [Months.SEPTEMBER]: [1, 15, 29],
-  [Months.OCTOBER]: [13, 27],
-  [Months.NOVEMBER]: [10, 24],
-  [Months.DECEMBER]: [8, 22],
+  [Months.JANUARY]: [5, 19],
+  [Months.FEBRUARY]: [2, 16],
+  [Months.MARCH]: [1, 15, 29],
+  [Months.APRIL]: [12, 26],
+  [Months.MAY]: [10, 24],
+  [Months.JUNE]: [7, 21],
+  [Months.JULY]: [5, 19],
+  [Months.AUGUST]: [2, 16, 30],
+  [Months.SEPTEMBER]: [13, 27],
+  [Months.OCTOBER]: [11, 25],
+  [Months.NOVEMBER]: [8, 22],
+  [Months.DECEMBER]: [6, 20],
 };
 
 const greenCalendar: any = {
-  [Months.JANUARY]: [17],
-  [Months.FEBRUARY]: [14, 28],
-  [Months.MARCH]: [14, 28],
-  [Months.APRIL]: [4, 11, 18, 25],
+  [Months.JANUARY]: [18],
+  [Months.FEBRUARY]: [8, 22],
+  [Months.MARCH]: [7, 21],
+  [Months.APRIL]: [4, 11, 18],
   [Months.MAY]: [2, 9, 16, 23, 30],
   [Months.JUNE]: [6, 13, 20, 27],
   [Months.JULY]: [11, 25],
@@ -68,9 +68,9 @@ export function getWaste(date: Date = new Date()): any {
 
   const weekCalendar: any = {
     [Days.MONDAY]: [Wastes.MULTI_MATERIAL],
-    [Days.TUESDAY]: [Wastes.ORGANIC].concat(checkCalendar(date, greenCalendar) ? [Wastes.GREEN] : []),
+    [Days.TUESDAY]: [Wastes.ORGANIC],
     [Days.WEDNESDAY]: [Wastes.DIAPERS, Wastes.UNDIFFERENTIATED],
-    [Days.THURSDAY]: [Wastes.PAPER],
+    [Days.THURSDAY]: checkCalendar(date, greenCalendar) ? [Wastes.PAPER, Wastes.GREEN] : [Wastes.PAPER],
     [Days.FRIDAY]: checkCalendar(date, glassCalendar) ? [Wastes.GLASS] : [Wastes.MULTI_MATERIAL],
     [Days.SATURDAY]: [Wastes.DIAPERS, Wastes.ORGANIC],
     [Days.SUNDAY]: [],
